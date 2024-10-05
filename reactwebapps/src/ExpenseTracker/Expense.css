@@ -1,0 +1,43 @@
+.maincontainer {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container {
+    width: 450px;
+    padding: 20px;
+    background-color: #ebcece;
+    border-radius: 10px;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+.expensebar {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    letter-spacing: 5px;
+
+}
+
+.input1{
+    background-color: #ebcece;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1)
+
+}
+
+h1 {
+    align-items: center;
+    text-align: center;
+}
+
+h2 {
+    align-items: center;
+    text-align: center;
+}
