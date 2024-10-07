@@ -13,7 +13,7 @@ const Expense = () => {
   const handleAmount = (event) => {
     setAmount(event.target.value);
   };
-
+ 
   const handleSubmit = (event) => {
     event.preventDefault();
     
