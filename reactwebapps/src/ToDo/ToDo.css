@@ -40,6 +40,19 @@ body {
     font-size: 16px;
     margin-bottom: 20px;
   }
+
+  .editbutton {
+    background-color: #b96613;
+    color: white;
+    width: 150px;
+    height: 50px;
+    padding: 10px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
   
   button:hover {
     background-color: #165ecc;
@@ -54,7 +67,12 @@ body {
     background-color: #f0f2f5;
     padding: 10px;
     margin-bottom: 8px;
+    margin-right: 9px;
+    margin-left: 9px;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    
   }
   

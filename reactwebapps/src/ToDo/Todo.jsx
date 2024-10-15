@@ -4,15 +4,23 @@ import "./ToDo.css";
 const Todo = () => {
   const [inputvalue, setinputvalue] = useState("");
   const [todos, settodos] = useState([]);
+  const [editId, setEditId] = useState(null);
 
   const addtodo = () => {
     if (inputvalue.trim() !== "") {
-      const newtodo = {
-        id: new Date().getTime(),
-        text: inputvalue,
-      };
-
-      settodos([...todos, newtodo]);
+      if (editId) {
+        const updatedtodos = todos.map((todo) =>
+          todo.id === editId ? { ...todo, text: inputvalue } : todo
+        );
+        settodos(updatedtodos);
+        setEditId(null);
+      } else {
+        const newtodo = {
+          id: new Date().getTime(),
+          text: inputvalue,
+        };
+        settodos([...todos, newtodo]);
+      }
       setinputvalue("");
     }
   };
@@ -21,25 +29,30 @@ const Todo = () => {
     const updatedtodos = todos.filter((todo) => todo.id !== id);
     settodos(updatedtodos);
   };
-  
+
+  const edittodo = (id, text) => {
+    setEditId(id);
+    setinputvalue(text);
+  };
 
   return (
     <div className="container">
       <h1>Your Daily Task</h1>
       <input
         type="text"
-        placeholder="enter your task"
+        placeholder="Enter your task"
         value={inputvalue}
         onChange={(e) => setinputvalue(e.target.value)}
       />
       <button className='addbutton' type="submit" onClick={addtodo}>
-        Add Task
+        {editId ? "Update Task" : "Add Task"}
       </button>
       <ul>
         {todos.map((todo) => (
           <li key={todo.id}>
             {todo.text}
-            <button onClick={() => deletetodo(todo.id)}>Delete Task</button>
+            <button className="editbutton" onClick={() => edittodo(todo.id, todo.text)}>Edit Task</button>
+            <button className="editbutton" onClick={() => deletetodo(todo.id)}>Delete Task</button>
           </li>
         ))}
       </ul>
